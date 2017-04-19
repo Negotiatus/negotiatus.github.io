@@ -1,0 +1,76 @@
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}Negotiatus • Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <link rel="alternate" type="application/atom+xml" title="Negotiatus Blog" href="/atom.xml">
+
+    <link rel="shortcut icon" type="image/png" href="{{ site.github.url }}/favicon.png">
+    <link rel="stylesheet" type="text/css" href="{{ site.github.url }}/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.github.url }}/bootstrap.css">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@negotiatus">
+    <meta name="twitter:creator" content="@negotiatus">
+
+    {% if page.title %}
+      <meta property="og:title" content="{{ page.title }}">
+      <meta name="twitter:title" content="{{ page.title }}">
+
+      {% if page.description %}
+        <meta name="description" content="{{ page.description }}">
+        <meta name="og:description" content="{{ page.description }}">
+        <meta name="twitter:description" content="{{ page.description }}">
+      {% else if content %}
+        <meta name="description" content="{{ content | strip_html | truncatewords: 25 }}">
+        <meta name="og:description" content="{{ content | strip_html | truncatewords: 25 }}">
+        <meta name="twitter:description" content="{{ content | strip_html | truncatewords: 25 }}">
+      {% endif %}
+    {% else %}
+      <meta name="description" content="The official blog of negotiatus.com, a powerful, free-to-use purchasing solution for businesses.">
+    {% endif %}
+
+    {% if page.og_image_url %}
+      <meta property="og:image" content="{{ page.og_image_url }}">
+      <meta name="twitter:image" content="{{ page.og_image_url }}">
+    {% else %}
+      {% if page.photo_url %}
+        <meta property="og:image" content="{{ page.photo_url }}">
+        <meta name="twitter:image" content="{{ page.og_image_url }}">
+      {% endif %}
+    {% endif %}
+
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="Negotiatus Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US" />
+
+    {% if page.date %}
+      <meta property="article:published_time" content="{{ page.date | date: "%Y-%m-%d" }}">
+    {% endif %}
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <a href="{{ site.github.url }}"><img src="{{ site.github.url }}/images/logo.svg" class="header__logo" /></a>
+        <div class="header__nav">
+          Presented by <a href="https://www.negotiatus.com">negotiatus.com</a>
+        </div>
+      </header>
+
+      <div class="content">
+        {{ content }}
+      </div>
+    </div>
+    <footer class="footer">
+      <p>
+        &copy; 2017 Negotiatus Corp.  All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
