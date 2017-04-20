@@ -2,6 +2,7 @@
 layout: post
 title:  "The top 6 KPIs required to be the purchasing hero at your company"
 date:   2017-04-20 00:00:00 0000
+image:  1.jpg
 ---
 
 ### *KPIs (key performance indicators): measurable values demonstrating how effectively companies achieve key business objectives*
